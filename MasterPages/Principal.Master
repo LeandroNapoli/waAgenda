@@ -1,0 +1,78 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Principal.Master.cs" Inherits="waAgenda.Site1" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+
+    <link href="../Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="../Content/CustomCss/LinkButtons.css" rel="stylesheet" />
+    <script src="../Scripts/jquery-3.6.0.min.js"></script>
+    <script src="../Scripts/bootstrap.min.js"></script>
+
+    <asp:ContentPlaceHolder ID="JavaScriptContent" runat="server">
+    </asp:ContentPlaceHolder>
+
+</head>
+<body>
+    <div class="container">
+        <div class="col-md-12">
+
+
+            <form id="form1" runat="server">
+                <div class="row">
+                    <div class="col-md-6">
+                        <header>
+                            <h1>Agenda de Contatos</h1>
+                        </header>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <nav class="navbar navbar-dark bg-primary">
+                            <div class="col-sm-offset-0">
+
+                                 <asp:Menu ID="Menu1" runat="server" DynamicHorizontalOffset="2" Font-Bold="True" Font-Names="Verdana" Font-Size="Large" Font-Strikeout="False" ForeColor="#111111" Orientation="Horizontal" RenderingMode="Table" StaticSubMenuIndent="20%" Width="100%" >
+                                    <DynamicHoverStyle BackColor="#666666" ForeColor="White" />
+                                    <DynamicMenuItemStyle HorizontalPadding="5px" VerticalPadding="2px" />
+                                    <DynamicMenuStyle BackColor="#E3EAEB" />
+                                    <DynamicSelectedStyle BackColor="#1C5E55" />
+                                    <Items>
+                                        <asp:MenuItem NavigateUrl="~/Pages/index.aspx" Text="Home" Value="Home"></asp:MenuItem>
+                                        <asp:MenuItem Text="Usuários" Value="Usuários" NavigateUrl="~/Pages/usersPage.aspx"></asp:MenuItem>
+                                        <asp:MenuItem Text="Login" Value="Login"></asp:MenuItem>
+                                        <asp:MenuItem Text="Sair" Value="Sair"></asp:MenuItem>
+                                    </Items>
+                                    <StaticHoverStyle BackColor="#1E90FF" ForeColor="White" />
+                                    <StaticMenuItemStyle HorizontalPadding="5px" VerticalPadding="2px" />
+                                    <StaticSelectedStyle BackColor="#1C5E55" />
+                                </asp:Menu>
+                            </div>
+
+                        </nav>
+                    </div>
+                </div>
+
+                <main>
+                    <div>
+                        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                        </asp:ContentPlaceHolder>
+                    </div>
+                </main>
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <footer>
+                            <p2>Site Leandro Teste Agenda</p2>
+                        </footer>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
