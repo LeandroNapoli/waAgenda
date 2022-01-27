@@ -135,5 +135,4 @@
 
 <asp:Content ID="Scripts" runat="server" ContentPlaceHolderID="JavaScriptContent">
     <script src="../Content/CustomJs/JsTest.js"></script>
-    <script src="../Scripts/bootstrap.js"></script>
 </asp:Content>
