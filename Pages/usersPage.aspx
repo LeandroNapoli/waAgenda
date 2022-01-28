@@ -67,7 +67,7 @@
                                                 <asp:LinkButton ID="lkbEditarUsuario" ClientIDMode="Static" runat="server" OnClick="lkbEditarUsuario_Click" CssClass="btn btn-primary" CommandArgument="<%# Item.IdUser %>" Text="Editar"></asp:LinkButton>
                                             </div>
                                             <div class="col-md-9">
-                                                <button id="lkbDeletarUsuario_<%# Item.IdUser %>" type="button" ClientIDMode="Static" class="btn btn-danger abrir-modal-delete" Onclick="abreModalDelete(<%# Item.IdUser %>)" data-toggle="popover" data-target="#exampleModalCenter">Deletar</button>
+                                                <button id="lkbDeletarUsuario_<%# Item.IdUser %>" type="button" clientidmode="Static" class="btn btn-danger abrir-modal-delete" onclick="abreModalDelete(<%# Item.IdUser %>)" data-toggle="popover" data-target="#exampleModalCenter">Deletar</button>
                                             </div>
                                         </div>
                                     </div>
@@ -84,31 +84,26 @@
                     <%-- <asp:DropDownList ID="Drop1" runat="server" OnSelectedIndexChanged="Drop1_SelectedIndexChanged" AutoPostBack="true">
             </asp:DropDownList>--%>
 
-                    <div>
+                    <%-- <div>
                         <asp:Label ID="Label1" runat="server" CssClass="abrir-modal-delete">
 
                             TESTANDO O LABEL
                         </asp:Label>
-                    </div>
-
-
-
+                    </div>--%>
                 </div>
                 <div class="row">
+
                     <br />
                     <asp:Button ID="btnAddUser" runat="server" Text="Adicionar Usuário" OnClick="AddUser_Click" CssClass="btn btn-success" />
 
                 </div>
             </div>
         </div>
-
-
-
     </div>
 
 
     <!-- Button trigger modal -->
-    <button id="button" type="button" Class="btn btn-primary" data-toggle="popover" data-target="#exampleModalCenter">
+    <button id="button" type="button" class="btn btn-primary" data-toggle="popover" data-target="#exampleModalCenter">
         Launch demo modal
     </button>
 
@@ -124,10 +119,10 @@
                 </div>
                 <div class="modal-body">
                     TEXTO PARA MODAL
-                    <asp:HiddenField runat="server" ID="hdnIdUser" ClientIDMode="Static"/>
+                    <asp:HiddenField runat="server" ID="hdnIdUser" ClientIDMode="Static" />
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
                     <asp:Button ID="btnDelete" runat="server" class="btn btn-danger" OnClick="btnDelete_Click" Text="Deletar"></asp:Button>
                 </div>
             </div>

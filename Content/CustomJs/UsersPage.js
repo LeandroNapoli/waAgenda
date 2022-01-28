@@ -15,7 +15,7 @@ function abreModalDelete(idUser) {
 
 $(document).ready(function () {
 
-    $("[data-toggle=popover]").popover();
+    $("[data-toggle=popover]").popover(); //O SALVADOR POPOVER PRA MOSTRAR O MODAL
 
     //ESSE BOTÃO ABAIXO É O TESTE
     $('#button').on('click', function () { //Função de exemplo para quando carregar a pagina o botão editar chamará a função que escreve batata.
