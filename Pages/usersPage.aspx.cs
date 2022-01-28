@@ -36,6 +36,12 @@ namespace waAgenda.Pages
         //    Drop1.DataBind(); //TIPO UM COMMIT
         //}
 
+
+        /// <summary>
+        /// Recebe a lista de usuário por parâmetro
+        /// e preenche o Grid com a Lista de Users (Parametro)
+        /// </summary>
+        /// <param name="contacts">Lista de Users</param>
         private void PreencheGridUsuario(List<User> contacts)
         {
             GridView1.DataSource = contacts;
@@ -50,7 +56,7 @@ namespace waAgenda.Pages
             {
                 conexaoBD.Open();
 
-                contacts = conexaoBD.Query<User>("select * from users where status = 1 order by name asc").ToList();
+                contacts = conexaoBD.Query<User>("Select * from users where status = 1 order by name asc").ToList();
 
             }
 
@@ -73,17 +79,25 @@ namespace waAgenda.Pages
 
             int idUser = Convert.ToInt32(lkbEditarUsuario.CommandArgument);
 
-            Response.Redirect("editUser.aspx?idUser=" +idUser);
+            Response.Redirect("editUser.aspx?idUser=" + idUser);
 
         }
 
-        protected void lkbDeletarUsuario_Click(object sender, EventArgs e)
+        protected void btnDelete_Click(object sender, EventArgs e)
         {
-            LinkButton lkbDeletaUsuario = (LinkButton)sender;
+            var idUser = Convert.ToInt32(hdnIdUser.Value);
 
-            int idUser = Convert.ToInt32(lkbDeletaUsuario.CommandArgument);
+            using (SqlConnection conexaoBD = new SqlConnection(strConexao))
+            {
+                conexaoBD.Execute("Update Users set Status = 0 where idUser = @idUser", new { idUser });
+
+            }
+
+            List<User> contacts = BuscarUsers(); //PESQUISAR NOVAMENTE OS USUÁRIO E PREENCHER O GRID ATUALIZADO
+            PreencheGridUsuario(contacts);
 
         }
+
 
     }
 }

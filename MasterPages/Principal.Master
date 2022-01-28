@@ -14,6 +14,8 @@
     <script src="../Scripts/jquery-3.6.0.min.js"></script>
     <script src="../Scripts/bootstrap.min.js"></script>
 
+
+
     <asp:ContentPlaceHolder ID="JavaScriptContent" runat="server">
     </asp:ContentPlaceHolder>
 
@@ -36,7 +38,7 @@
                         <nav class="navbar navbar-dark bg-primary">
                             <div class="col-sm-offset-0">
 
-                                 <asp:Menu ID="Menu1" runat="server" DynamicHorizontalOffset="2" Font-Bold="True" Font-Names="Verdana" Font-Size="Large" Font-Strikeout="False" ForeColor="#111111" Orientation="Horizontal" RenderingMode="Table" StaticSubMenuIndent="20%" Width="100%" >
+                                <asp:Menu ID="Menu1" runat="server" DynamicHorizontalOffset="2" Font-Bold="True" Font-Names="Verdana" Font-Size="Large" Font-Strikeout="False" ForeColor="#111111" Orientation="Horizontal" RenderingMode="Table" StaticSubMenuIndent="20%" Width="100%">
                                     <DynamicHoverStyle BackColor="#666666" ForeColor="White" />
                                     <DynamicMenuItemStyle HorizontalPadding="5px" VerticalPadding="2px" />
                                     <DynamicMenuStyle BackColor="#E3EAEB" />
