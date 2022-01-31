@@ -42,7 +42,7 @@
                                     </div>
                                 </HeaderTemplate>
                                 <ItemTemplate>
-                                    <div class="col-sm-6 text-center">
+                                    <div class="text-center">
                                         <asp:Label runat="server">
                                     <%# Item.EmailUser %>
                                         </asp:Label>
@@ -68,18 +68,18 @@
 
                             <asp:TemplateField>
                                 <HeaderTemplate>
-                                    <div class="text-center">
+                                    <div class="text-left">
                                         Opções 
                                     </div>
                                 </HeaderTemplate>
                                 <ItemTemplate>
                                     <div class="row">
                                         <div class="col-md-12">
-                                            <div class="col-md-6">
-                                                <asp:LinkButton ID="lkbEditarUsuario" ClientIDMode="Static" runat="server" OnClick="lkbEditarUsuario_Click" CssClass="btn btn-primary center-block" CommandArgument="<%# Item.IdUser %>" Text="Editar"></asp:LinkButton>
+                                            <div class="col-md-3">
+                                                <asp:LinkButton ID="lkbEditarUsuario" ClientIDMode="Static" runat="server" OnClick="lkbEditarUsuario_Click" CssClass="btn btn-primary" CommandArgument="<%# Item.IdUser %>" Text="Editar"></asp:LinkButton>
                                             </div>
-                                            <div class="col-md-6">
-                                                <button id="lkbDeletarUsuario_<%# Item.IdUser %>" type="button" clientidmode="Static" class="btn btn-danger abrir-modal-delete center-block" onclick="abreModalDelete(<%# Item.IdUser %>)" data-toggle="popover" data-target="#exampleModalCenter">Deletar</button>
+                                            <div class="col-md-9">
+                                                <button id="lkbDeletarUsuario_<%# Item.IdUser %>" type="button" clientidmode="Static" class="btn btn-danger abrir-modal-delete" onclick="abreModalDelete(<%# Item.IdUser %>)" data-toggle="popover" data-target="#exampleModalCenter">Deletar</button>
                                             </div>
                                         </div>
                                     </div>
