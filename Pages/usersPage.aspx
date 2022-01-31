@@ -2,8 +2,18 @@
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div>
+
         <div class="col-md-12">
-            <div class="col-md-offset-0">
+            <div class="row">
+                <div class="col-md-10"></div>
+                <div class="col-md-2" style="padding-right: unset">
+
+                    <asp:Button ID="btnAddUser" runat="server" Text="Adicionar Usuário" OnClick="AddUser_Click" CssClass="btn btn-success pull-right" />
+
+                </div>
+            </div>
+            <br />
+            <div class="col-md-0">
                 <div class="row">
 
                     <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="false" ItemType="waAgenda.Models.User" CssClass="table table-bordered table-hover">
@@ -49,7 +59,7 @@
                                 </HeaderTemplate>
                                 <ItemTemplate>
                                     <div class="text-center">
-                                        <asp:Label runat="server" >
+                                        <asp:Label runat="server">
                                             <%# Item.PhoneUser %>
                                         </asp:Label>
                                     </div>
@@ -58,16 +68,18 @@
 
                             <asp:TemplateField>
                                 <HeaderTemplate>
-                                    Opções 
+                                    <div class="text-center">
+                                        Opções 
+                                    </div>
                                 </HeaderTemplate>
                                 <ItemTemplate>
                                     <div class="row">
                                         <div class="col-md-12">
-                                            <div class="col-md-3">
-                                                <asp:LinkButton ID="lkbEditarUsuario" ClientIDMode="Static" runat="server" OnClick="lkbEditarUsuario_Click" CssClass="btn btn-primary" CommandArgument="<%# Item.IdUser %>" Text="Editar"></asp:LinkButton>
+                                            <div class="col-md-6">
+                                                <asp:LinkButton ID="lkbEditarUsuario" ClientIDMode="Static" runat="server" OnClick="lkbEditarUsuario_Click" CssClass="btn btn-primary center-block" CommandArgument="<%# Item.IdUser %>" Text="Editar"></asp:LinkButton>
                                             </div>
-                                            <div class="col-md-9">
-                                                <button id="lkbDeletarUsuario_<%# Item.IdUser %>" type="button" clientidmode="Static" class="btn btn-danger abrir-modal-delete" onclick="abreModalDelete(<%# Item.IdUser %>)" data-toggle="popover" data-target="#exampleModalCenter">Deletar</button>
+                                            <div class="col-md-6">
+                                                <button id="lkbDeletarUsuario_<%# Item.IdUser %>" type="button" clientidmode="Static" class="btn btn-danger abrir-modal-delete center-block" onclick="abreModalDelete(<%# Item.IdUser %>)" data-toggle="popover" data-target="#exampleModalCenter">Deletar</button>
                                             </div>
                                         </div>
                                     </div>
@@ -91,12 +103,7 @@
                         </asp:Label>
                     </div>--%>
                 </div>
-                <div class="row">
 
-                    <br />
-                    <asp:Button ID="btnAddUser" runat="server" Text="Adicionar Usuário" OnClick="AddUser_Click" CssClass="btn btn-success" />
-
-                </div>
             </div>
         </div>
     </div>
