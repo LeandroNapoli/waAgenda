@@ -20,8 +20,8 @@ namespace waAgenda.Pages
             {
                 List<User> contacts = BuscarUsers();
 
-                PreencheGridUsuario(contacts);
-
+                    PreencheGridUsuario(contacts);
+                
                 //PreencheDropUsuario(contacts);
 
             }
@@ -56,7 +56,7 @@ namespace waAgenda.Pages
             {
                 conexaoBD.Open();
 
-                contacts = conexaoBD.Query<User>("Select * from users where status = 1 order by name asc").ToList();
+                contacts = conexaoBD.Query<User>("Select * from users where statusUser = 1 order by nameUser asc").ToList();
 
             }
 
@@ -89,7 +89,7 @@ namespace waAgenda.Pages
 
             using (SqlConnection conexaoBD = new SqlConnection(strConexao))
             {
-                conexaoBD.Execute("Update Users set Status = 0 where idUser = @idUser", new { idUser });
+                conexaoBD.Execute("Update Users set statusUser = 0 where idUser = @idUser", new { idUser });
 
             }
 

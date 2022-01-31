@@ -33,7 +33,7 @@ namespace waAgenda.Pages
 
             using (SqlConnection conexaoBD = new SqlConnection(strConexao))
             {
-                conexaoBD.Execute("insert into Users (name, email, phone, status) Values (@name, @email, @phone, '1')", contact);
+                conexaoBD.Execute("insert into Users (nameUser, emailUser, phoneUser, statusUser) Values (@nameUser, @emailUser, @phoneUser, '1')", contact);
             }
 
             Response.Write("Usuário inserido com sucesso!");
