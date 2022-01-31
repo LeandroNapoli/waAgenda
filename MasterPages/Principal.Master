@@ -36,7 +36,7 @@
                 <div class="row">
                     <div class="col-md-12">
                         <nav class="navbar navbar-dark bg-primary">
-                            <div class="col-sm-offset-0">
+                            <div class="col-sm-offset-0 text-center">
 
                                 <asp:Menu ID="Menu1" runat="server" DynamicHorizontalOffset="2" Font-Bold="True" Font-Names="Verdana" Font-Size="Large" Font-Strikeout="False" ForeColor="#111111" Orientation="Horizontal" RenderingMode="Table" StaticSubMenuIndent="20%" Width="100%">
                                     <DynamicHoverStyle BackColor="#666666" ForeColor="White" />
@@ -44,7 +44,7 @@
                                     <DynamicMenuStyle BackColor="#E3EAEB" />
                                     <DynamicSelectedStyle BackColor="#1C5E55" />
                                     <Items>
-                                        <asp:MenuItem NavigateUrl="~/Pages/index.aspx" Text="Home" Value="Home"></asp:MenuItem>
+                                        <asp:MenuItem NavigateUrl="~/Pages/index.aspx" Text="Home" Value="Home" ></asp:MenuItem>
                                         <asp:MenuItem Text="Usuários" Value="Usuários" NavigateUrl="~/Pages/usersPage.aspx"></asp:MenuItem>
                                         <asp:MenuItem Text="Login" Value="Login"></asp:MenuItem>
                                         <asp:MenuItem Text="Sair" Value="Sair"></asp:MenuItem>

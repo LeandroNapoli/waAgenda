@@ -18,7 +18,7 @@
                                     </div>
                                 </HeaderTemplate>
                                 <ItemTemplate>
-                                    <div>
+                                    <div class="text-center">
                                         <asp:Label runat="server">
                                             <%# Item.Name %> 
                                         </asp:Label>
@@ -32,7 +32,7 @@
                                     </div>
                                 </HeaderTemplate>
                                 <ItemTemplate>
-                                    <div class="col-sm-6">
+                                    <div class="col-sm-6 text-center">
                                         <asp:Label runat="server">
                                     <%# Item.Email %>
                                         </asp:Label>
@@ -48,8 +48,8 @@
                                     </div>
                                 </HeaderTemplate>
                                 <ItemTemplate>
-                                    <div>
-                                        <asp:Label runat="server">
+                                    <div class="text-center">
+                                        <asp:Label runat="server" >
                                             <%# Item.Phone %>
                                         </asp:Label>
                                     </div>
@@ -102,13 +102,8 @@
     </div>
 
 
-    <!-- Button trigger modal -->
-    <button id="button" type="button" class="btn btn-primary" data-toggle="popover" data-target="#exampleModalCenter">
-        Launch demo modal
-    </button>
-
     <!-- Modal -->
-    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal fade" id="modalDelete" tabindex="-1" role="dialog" aria-labelledby="modalDeleteTitle" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-header">
