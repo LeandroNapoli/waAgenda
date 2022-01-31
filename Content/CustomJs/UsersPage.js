@@ -23,7 +23,7 @@ $(document).ready(function () {
         $('#exampleModalCenter').modal('show'); //REFERÊNCIA DE MODAL QUE DEVE SER ABERTO
     });
     //ESSE BOTÃO ABAIXO É O DO DELETE
-    $('.abrir-modal-delete').on('click', function () { //Função de exemplo para quando carregar a pagina o botão editar chamará a função que escreve batata.
+    $('.abrir-modal-delete').on('click', function () { //Função que carrega o evento click no botão com a classe .abrir-modal-delete
 
         $('#modalDelete').modal('show'); //REFERÊNCIA DE MODAL QUE DEVE SER ABERTO
     });

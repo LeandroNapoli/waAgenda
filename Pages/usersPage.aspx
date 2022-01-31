@@ -107,13 +107,13 @@
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+                    <h5 class="modal-title" id="exampleModalLongTitle">Deletar Usuário</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
                 <div class="modal-body">
-                    TEXTO PARA MODAL
+                    <asp:Label runat="server">Você realmente deseja deletar o usuário?</asp:Label>
                     <asp:HiddenField runat="server" ID="hdnIdUser" ClientIDMode="Static" />
                 </div>
                 <div class="modal-footer">
