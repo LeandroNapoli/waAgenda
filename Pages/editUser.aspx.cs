@@ -26,9 +26,9 @@ namespace waAgenda.Pages
                 User contact = BuscarUser(idUser);
 
                 //PreencheGridUsuario(contact);
-                NameUser.Text = contact.Name;
-                EmailUser.Text = contact.Email;
-                PhoneUser.Text = contact.Phone;
+                NameUser.Text = contact.NameUser;
+                EmailUser.Text = contact.EmailUser;
+                PhoneUser.Text = contact.PhoneUser;
 
             }
         }
@@ -58,15 +58,15 @@ namespace waAgenda.Pages
             User contact = new User();
 
             contact.IdUser = idUser;
-            contact.Name = NameUser.Text;
-            contact.Email = EmailUser.Text;
-            contact.Phone = PhoneUser.Text;
+            contact.NameUser = NameUser.Text;
+            contact.EmailUser = EmailUser.Text;
+            contact.PhoneUser = PhoneUser.Text;
 
             using (SqlConnection conexaoBD = new SqlConnection(strConexao))
             {
                 conexaoBD.Open();
 
-                conexaoBD.Execute("Update Users Set Name = @Name, Email = @Email, Phone = @Phone where idUser = @idUser", new { contact.IdUser, contact.Name, contact.Email, contact.Phone });
+                conexaoBD.Execute("Update Users Set NameUser = @NameUser, EmailUser = @EmailUser, PhoneUser = @PhoneUser where idUser = @idUser", new { contact.IdUser, contact.NameUser, contact.EmailUser, contact.PhoneUser });
 
             }
 

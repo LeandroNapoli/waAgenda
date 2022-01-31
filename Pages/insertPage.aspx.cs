@@ -27,9 +27,9 @@ namespace waAgenda.Pages
         {
             User contact = new User();
 
-            contact.Name = nameBox.Text;
-            contact.Email = emailBox.Text;
-            contact.Phone = phoneBox.Text;
+            contact.NameUser = nameBox.Text;
+            contact.EmailUser = emailBox.Text;
+            contact.PhoneUser = phoneBox.Text;
 
             using (SqlConnection conexaoBD = new SqlConnection(strConexao))
             {

@@ -20,7 +20,7 @@
                                 <ItemTemplate>
                                     <div class="text-center">
                                         <asp:Label runat="server">
-                                            <%# Item.Name %> 
+                                            <%# Item.NameUser %> 
                                         </asp:Label>
                                     </div>
                                 </ItemTemplate>
@@ -34,7 +34,7 @@
                                 <ItemTemplate>
                                     <div class="col-sm-6 text-center">
                                         <asp:Label runat="server">
-                                    <%# Item.Email %>
+                                    <%# Item.EmailUser %>
                                         </asp:Label>
                                     </div>
 
@@ -50,7 +50,7 @@
                                 <ItemTemplate>
                                     <div class="text-center">
                                         <asp:Label runat="server" >
-                                            <%# Item.Phone %>
+                                            <%# Item.PhoneUser %>
                                         </asp:Label>
                                     </div>
                                 </ItemTemplate>
