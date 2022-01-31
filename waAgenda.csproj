@@ -79,6 +79,7 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\CustomCss\LinkButtons.css" />
+    <Content Include="Content\CustomJs\InsertPage.js" />
     <Content Include="Content\CustomJs\UsersPage.js" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Pages\usersPage.aspx" />

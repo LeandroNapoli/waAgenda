@@ -37,3 +37,7 @@
     </div>
 
 </asp:Content>
+
+<asp:Content ID="Scripts" runat="server" ContentPlaceHolderID="JavaScriptContent">
+    <script src="../Content/CustomJs/InsertPage.js"></script>
+</asp:Content>
