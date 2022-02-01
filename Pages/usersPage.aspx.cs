@@ -50,17 +50,17 @@ namespace waAgenda.Pages
 
         private static List<User> BuscarUsers()
         {
-            List<User> contacts = new List<User>();
+            List<User> users = new List<User>();
 
             using (SqlConnection conexaoBD = new SqlConnection(strConexao))
             {
                 conexaoBD.Open();
 
-                contacts = conexaoBD.Query<User>("Select * from users where statusUser = 1 order by nameUser asc").ToList();
+                users = conexaoBD.Query<User>("Select * from users where statusUser = 1 order by nameUser asc").ToList();
 
             }
 
-            return contacts;
+            return users;
         }
 
         protected void AddUser_Click(object sender, EventArgs e)
@@ -98,7 +98,22 @@ namespace waAgenda.Pages
 
         }
 
+        protected void btnSearch_Click(object sender, EventArgs e)
+        {
+            List<User> users = new List<User>();
+            var search = searchBar.Text;
 
+
+            using (SqlConnection conexaoBD = new SqlConnection(strConexao))
+            {
+                conexaoBD.Open();
+
+                users = conexaoBD.Query<User>("Select * from users where NameUser Like @search", new {  search = "%" + search + "%" }).ToList();
+
+            }
+
+            PreencheGridUsuario(users);
+        }
     }
 }
 

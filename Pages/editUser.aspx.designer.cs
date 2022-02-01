@@ -11,7 +11,7 @@ namespace waAgenda.Pages
 {
 
 
-    public partial class editContact
+    public partial class editUser
     {
 
         /// <summary>

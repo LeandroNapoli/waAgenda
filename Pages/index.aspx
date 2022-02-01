@@ -3,15 +3,12 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    <div class="container text-center">
+        <h1>Home Agenda de Contatos</h1>
 
-    <h1>TESTANDO A INDEX</h1>
-    <div>
-        <p>ASUJDSIBSUHIFBUSYFUHSJFUJHJSBUJFSUFBSUFBSUBFSUSFBUSBF</p>
-    </div>
-
-
-    <div>
-        <h2>AHAHAHA DEU CERTO</h2>
+        <div>
+            <p>Home de um simples CRUD Web para estudos do Web Forms</p>
+        </div>
     </div>
 
 

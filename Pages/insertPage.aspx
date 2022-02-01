@@ -11,27 +11,27 @@
 
     <div class="col-md-12">
         <asp:Label ID="nameNewUser" runat="server" Text="Nome: " CssClass="col-md-1"></asp:Label>
-        <asp:TextBox ID="nameBox" runat="server" Width="20%" CssClass="col-md-11"></asp:TextBox>
+        <asp:TextBox ID="nameBox" runat="server" Width="20%" CssClass="col-md-11 form-control"></asp:TextBox>
     </div>
     <br />
     <br />
 
     <div class="col-md-12">
         <asp:Label ID="emailNewUser" runat="server" Text="E-mail: " CssClass="col-md-1"></asp:Label>
-        <asp:TextBox ID="emailBox" runat="server" Width="20%" CssClass="col-md-11"></asp:TextBox>
+        <asp:TextBox ID="emailBox" runat="server" Width="20%" CssClass="col-md-11 form-control"></asp:TextBox>
     </div>
     <br />
     <br />
 
     <div class="col-md-12">
         <asp:Label ID="phoneLabel" runat="server" Text="Telefone: " CssClass="col-md-1"></asp:Label>
-        <asp:TextBox ID="phoneBox" runat="server" Width="20%" TextMode="Phone" CssClass="col-md-11"></asp:TextBox>
+        <asp:TextBox ID="phoneBox" runat="server" Width="20%" TextMode="Phone" CssClass="col-md-11 form-control"></asp:TextBox>
     </div>
     <br />
     <br />
 
     <div>
-
+        <br />
         <asp:Button ID="btnInsert" runat="server" Text="Inserir Contato" OnClick="btnInsert_Click1" CssClass="btn btn-info" />
 
     </div>

@@ -2,13 +2,21 @@
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div>
+        <div class="col-md-4">
+            <h4>Usuários Ativos</h4>
+            <br />
+        </div>
 
         <div class="col-md-12">
             <div class="row">
-                <div class="col-md-10">
-                    <h4>Usuários Ativos</h4>
+
+                <div class="col-md-8">
+                    <asp:TextBox ID="searchBar" runat="server" CssClass="form-control col-md-8" Width="50%"></asp:TextBox>
+                    <div class="col-md-2">
+                        <asp:Button ID="btnSearch" runat="server" CssClass="btn btn-default" OnClick="btnSearch_Click" Text="Pesquisar" />
+                    </div>
                 </div>
-                <div class="col-md-2" style="padding-right: unset">
+                <div class="col-md-4" style="padding-right: unset">
 
                     <asp:Button ID="btnAddUser" runat="server" Text="Adicionar Usuário" OnClick="AddUser_Click" CssClass="btn btn-success pull-right" />
 
