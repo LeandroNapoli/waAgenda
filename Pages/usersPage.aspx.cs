@@ -108,7 +108,7 @@ namespace waAgenda.Pages
             {
                 conexaoBD.Open();
 
-                users = conexaoBD.Query<User>("Select * from users where NameUser Like @search", new {  search = "%" + search + "%" }).ToList();
+                users = conexaoBD.Query<User>("Select * from users where NameUser Like @search and statusUser = '1'", new {  search = "%" + search + "%" }).ToList();
 
             }
 
