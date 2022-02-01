@@ -8,7 +8,9 @@
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div>
         <div class="col-md-12">
-
+            <div class="col-md-3">
+                <h3>Usuários Inativos</h3>
+            </div>
             <div class="col-md-0">
                 <div class="row">
 

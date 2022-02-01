@@ -5,7 +5,9 @@
 
         <div class="col-md-12">
             <div class="row">
-                <div class="col-md-10"></div>
+                <div class="col-md-10">
+                    <h4>Usuários Ativos</h4>
+                </div>
                 <div class="col-md-2" style="padding-right: unset">
 
                     <asp:Button ID="btnAddUser" runat="server" Text="Adicionar Usuário" OnClick="AddUser_Click" CssClass="btn btn-success pull-right" />

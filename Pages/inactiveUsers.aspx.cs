@@ -23,8 +23,8 @@ namespace waAgenda.Pages
                 PreencheGridUsuario(users);
 
                 //PreencheDropUsuario(contacts);
-
             }
+
         }
 
         private static List<User> BuscarUsersInativos()
