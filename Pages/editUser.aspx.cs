@@ -11,7 +11,7 @@ using waAgenda.Models;
 
 namespace waAgenda.Pages
 {
-    public partial class editContact : System.Web.UI.Page
+    public partial class editUser : System.Web.UI.Page
     {
         static string strConexao = ConfigurationManager.ConnectionStrings["conexaoAgenda"].ConnectionString;
         protected void Page_Load(object sender, EventArgs e)

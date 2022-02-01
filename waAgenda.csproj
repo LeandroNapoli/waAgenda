@@ -79,9 +79,11 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\CustomCss\LinkButtons.css" />
+    <Content Include="Content\CustomJs\InactiveUsers.js" />
     <Content Include="Content\CustomJs\InsertPage.js" />
     <Content Include="Content\CustomJs\UsersPage.js" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Pages\inactiveUsers.aspx" />
     <Content Include="Pages\usersPage.aspx" />
     <Content Include="Pages\editUser.aspx" />
     <Content Include="Pages\insertPage.aspx" />
@@ -105,6 +107,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Models\User.cs" />
+    <Compile Include="Pages\inactiveUsers.aspx.cs">
+      <DependentUpon>inactiveUsers.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\inactiveUsers.aspx.designer.cs">
+      <DependentUpon>inactiveUsers.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Pages\usersPage.aspx.cs">
       <DependentUpon>usersPage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

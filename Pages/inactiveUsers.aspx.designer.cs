@@ -11,26 +11,17 @@ namespace waAgenda.Pages
 {
 
 
-    public partial class contactsPage
+    public partial class inactiveUsers
     {
 
         /// <summary>
-        /// btnAddUser control.
+        /// GridViewInactiveUsers control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnAddUser;
-
-        /// <summary>
-        /// GridViewActiveUsers control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView GridViewActiveUsers;
+        protected global::System.Web.UI.WebControls.GridView GridViewInactiveUsers;
 
         /// <summary>
         /// hdnIdUser control.
@@ -42,12 +33,12 @@ namespace waAgenda.Pages
         protected global::System.Web.UI.WebControls.HiddenField hdnIdUser;
 
         /// <summary>
-        /// btnDelete control.
+        /// btnReativar control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnDelete;
+        protected global::System.Web.UI.WebControls.Button btnReativar;
     }
 }

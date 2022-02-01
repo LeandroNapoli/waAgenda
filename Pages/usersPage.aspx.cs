@@ -44,8 +44,8 @@ namespace waAgenda.Pages
         /// <param name="contacts">Lista de Users</param>
         private void PreencheGridUsuario(List<User> contacts)
         {
-            GridView1.DataSource = contacts;
-            GridView1.DataBind(); //TIPO UM COMMIT
+            GridViewActiveUsers.DataSource = contacts;
+            GridViewActiveUsers.DataBind(); //TIPO UM COMMIT
         }
 
         private static List<User> BuscarUsers()

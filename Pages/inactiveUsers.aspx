@@ -1,22 +1,18 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPages/Principal.Master" AutoEventWireup="true" CodeBehind="usersPage.aspx.cs" Inherits="waAgenda.Pages.contactsPage" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPages/Principal.Master" AutoEventWireup="true" CodeBehind="inactiveUsers.aspx.cs" Inherits="waAgenda.Pages.inactiveUsers" %>
 
-<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="JavaScriptContent" runat="server">
+    <script src="../Content/CustomJs/InactiveUsers.js"></script>
+</asp:Content>
+<asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div>
-
         <div class="col-md-12">
-            <div class="row">
-                <div class="col-md-10"></div>
-                <div class="col-md-2" style="padding-right: unset">
 
-                    <asp:Button ID="btnAddUser" runat="server" Text="Adicionar Usuário" OnClick="AddUser_Click" CssClass="btn btn-success pull-right" />
-
-                </div>
-            </div>
-            <br />
             <div class="col-md-0">
                 <div class="row">
 
-                    <asp:GridView ID="GridViewActiveUsers" runat="server" AutoGenerateColumns="false" ItemType="waAgenda.Models.User" CssClass="table table-bordered table-hover">
+                    <asp:GridView ID="GridViewInactiveUsers" runat="server" AutoGenerateColumns="false" ItemType="waAgenda.Models.User" CssClass="table table-bordered table-hover">
 
                         <Columns>
                             <%--<asp:BoundField DataField="Name" HeaderText="Nome" />--%>
@@ -73,66 +69,42 @@
                                     </div>
                                 </HeaderTemplate>
                                 <ItemTemplate>
-                                    <div class="row">
-                                        <div class="col-md-12">
-                                            <div class="col-md-3">
-                                                <asp:LinkButton ID="lkbEditarUsuario" ClientIDMode="Static" runat="server" OnClick="lkbEditarUsuario_Click" CssClass="btn btn-primary" CommandArgument="<%# Item.IdUser %>" Text="Editar"></asp:LinkButton>
-                                            </div>
-                                            <div class="col-md-9">
-                                                <button id="lkbDeletarUsuario_<%# Item.IdUser %>" type="button" clientidmode="Static" class="btn btn-danger abrir-modal-delete" onclick="abreModalDelete(<%# Item.IdUser %>)" data-toggle="popover" data-target="#exampleModalCenter">Deletar</button>
-                                            </div>
-                                        </div>
-                                    </div>
-
+                                    <button id="btnActiveUser_<%# Item.IdUser %>" type="button" clientidmode="Static" class="btn btn-primary abrir-modal-reativar" onclick="abreModalReativa(<%# Item.IdUser %>)" data-toggle="popover" data-target="#exampleModalCenter">Reativar</button>
                                 </ItemTemplate>
-
                             </asp:TemplateField>
-
-
                         </Columns>
-
                     </asp:GridView>
-
-                    <%-- <asp:DropDownList ID="Drop1" runat="server" OnSelectedIndexChanged="Drop1_SelectedIndexChanged" AutoPostBack="true">
-            </asp:DropDownList>--%>
-
-                    <%-- <div>
-                        <asp:Label ID="Label1" runat="server" CssClass="abrir-modal-delete">
-
-                            TESTANDO O LABEL
-                        </asp:Label>
-                    </div>--%>
                 </div>
-
             </div>
         </div>
     </div>
 
 
+
+
+
+
     <!-- Modal -->
-    <div class="modal fade" id="modalDelete" tabindex="-1" role="dialog" aria-labelledby="modalDeleteTitle" aria-hidden="true">
+    <div class="modal fade" id="modalReativar" tabindex="-1" role="dialog" aria-labelledby="modalReativarTitle" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLongTitle">Deletar Usuário</h5>
+                    <h5 class="modal-title" id="exampleModalLongTitle">Reativar Usuário</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
                 <div class="modal-body">
-                    <asp:Label runat="server">Você realmente deseja deletar o usuário?</asp:Label>
+                    <asp:Label runat="server">Você realmente deseja reativar o usuário?</asp:Label>
                     <asp:HiddenField runat="server" ID="hdnIdUser" ClientIDMode="Static" />
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-                    <asp:Button ID="btnDelete" runat="server" class="btn btn-danger" OnClick="btnDelete_Click" Text="Deletar"></asp:Button>
+                    <asp:Button ID="btnReativar" runat="server" class="btn btn-success" OnClick="btnReativar_Click" Text="Reativar"></asp:Button>
                 </div>
             </div>
         </div>
     </div>
 
-</asp:Content>
 
-<asp:Content ID="Scripts" runat="server" ContentPlaceHolderID="JavaScriptContent">
-    <script src="../Content/CustomJs/UsersPage.js"></script>
 </asp:Content>
