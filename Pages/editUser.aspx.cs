@@ -11,7 +11,7 @@ using waAgenda.Models;
 
 namespace waAgenda.Pages
 {
-    public partial class editUser : System.Web.UI.Page
+    public partial class editUser : Page
     {
         static string strConexao = ConfigurationManager.ConnectionStrings["conexaoAgenda"].ConnectionString;
         protected void Page_Load(object sender, EventArgs e)
@@ -42,7 +42,7 @@ namespace waAgenda.Pages
             {
                 conexaoBD.Open();
 
-                contact = conexaoBD.Query<User>("Select * from Users where idUser = @idUser", new { idUser }).FirstOrDefault();
+                contact = conexaoBD.Query<User>("Select * from Users where IdUser = @idUser", new { idUser }).FirstOrDefault();
 
             }
 
@@ -66,7 +66,7 @@ namespace waAgenda.Pages
             {
                 conexaoBD.Open();
 
-                conexaoBD.Execute("Update Users Set NameUser = @NameUser, EmailUser = @EmailUser, PhoneUser = @PhoneUser where idUser = @idUser", new { contact.IdUser, contact.NameUser, contact.EmailUser, contact.PhoneUser });
+                conexaoBD.Execute("Update Users Set NameUser = @NameUser, EmailUser = @EmailUser, PhoneUser = @PhoneUser where IdUser = @idUser", new { contact.IdUser, contact.NameUser, contact.EmailUser, contact.PhoneUser });
 
             }
 

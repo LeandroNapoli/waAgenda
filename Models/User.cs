@@ -11,6 +11,8 @@ namespace waAgenda.Models
         public string NameUser { get; set; }
         public string EmailUser { get; set; }
         public string PhoneUser { get; set; }
+        public int IdStatus { get; set; }
+        public virtual Status Status { get; set; }
 
     }
 }
