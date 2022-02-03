@@ -8,6 +8,7 @@ using System.Web.UI.WebControls;
 using waAgenda.Models;
 using Dapper;
 using System.Data.SqlClient;
+using waAgenda.Models.Enum;
 
 namespace waAgenda.Pages
 {
@@ -56,7 +57,13 @@ namespace waAgenda.Pages
             {
                 conexaoBD.Open();
 
-                users = conexaoBD.Query<User>("Select * from users where statusUser = 1 order by nameUser asc").ToList();
+                string sql = @"Select * 
+                                from Users u 
+                                INNER JOIN Status s on s.idStatus = u.IdStatus 
+                                where s.StatusValor = @Ativo 
+                                order by NameUser asc";
+
+                users = conexaoBD.Query<User>(sql, new { Ativo = (int)EnumStatus.Ativo}).ToList();
 
             }
 
@@ -89,7 +96,13 @@ namespace waAgenda.Pages
 
             using (SqlConnection conexaoBD = new SqlConnection(strConexao))
             {
-                conexaoBD.Execute("Update Users set statusUser = 0 where idUser = @idUser", new { idUser });
+
+                string sqlConsulta = @"Select * from Status s 
+                                        where s.StatusValor = @Inativo";
+
+                var status = conexaoBD.Query<Status>(sqlConsulta, new { Inativo = (int)EnumStatus.Inativo }).FirstOrDefault();
+
+                conexaoBD.Execute("Update Users set IdStatus = @IdStatusInativo where idUser = @idUser", new { IdStatusInativo = status.IdStatus, idUser });
 
             }
 
@@ -108,7 +121,16 @@ namespace waAgenda.Pages
             {
                 conexaoBD.Open();
 
-                users = conexaoBD.Query<User>("Select * from users where NameUser Like @search and statusUser = '1'", new {  search = "%" + search + "%" }).ToList();
+                string sqlConsulta = @"select * from Status s 
+                                        where s.StatusValor = @Ativo"; //Select para identificar qual status possui o campo StatusValor = @Ativo do EnumStatus.
+
+                var status = conexaoBD.Query<Status>(sqlConsulta, new { Ativo = (int)EnumStatus.Ativo }).FirstOrDefault();
+
+
+                string sql = @"Select * from users 
+                                where NameUser Like @search and IdStatus = @IdStatusAtivo";
+
+                users = conexaoBD.Query<User>(sql, new { search = "%" + search + "%", IdStatusAtivo = status.IdStatus }).ToList();
 
             }
 

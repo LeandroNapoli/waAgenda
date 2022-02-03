@@ -8,8 +8,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using Dapper;
 using waAgenda.Models;
-
-
+using waAgenda.Models.Enum;
 
 namespace waAgenda.Pages
 {
@@ -30,13 +29,12 @@ namespace waAgenda.Pages
             contact.NameUser = nameBox.Text;
             contact.EmailUser = emailBox.Text;
             contact.PhoneUser = phoneBox.Text;
+            contact.IdStatus = (int)EnumStatus.Ativo;
 
             using (SqlConnection conexaoBD = new SqlConnection(strConexao))
             {
-                conexaoBD.Execute("insert into Users (nameUser, emailUser, phoneUser, statusUser) Values (@nameUser, @emailUser, @phoneUser, '1')", contact);
+                conexaoBD.Execute("insert into Users (nameUser, emailUser, phoneUser, statusUser) Values (@nameUser, @emailUser, @phoneUser, @IdStatus)", contact);
             }
-
-            Response.Write("Usuário inserido com sucesso!");
 
             Response.Redirect("usersPage.aspx");
         }

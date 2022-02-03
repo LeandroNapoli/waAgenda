@@ -12,7 +12,7 @@ using waAgenda.Models.Enum;
 
 namespace waAgenda.Pages
 {
-    public partial class inactiveUsers : System.Web.UI.Page
+    public partial class inactiveUsers : Page
     {
         static string strConexao = ConfigurationManager.ConnectionStrings["conexaoAgenda"].ConnectionString;
         protected void Page_Load(object sender, EventArgs e)
@@ -44,6 +44,7 @@ namespace waAgenda.Pages
 
                 users = conexaoBD.Query<User>(sql, new { Inativo = (int)EnumStatus.Inativo }).ToList();
 
+
             }
 
             return users;
@@ -62,7 +63,15 @@ namespace waAgenda.Pages
 
             using (SqlConnection conexaoBD = new SqlConnection(strConexao))
             {
-                conexaoBD.Execute("Update Users set statusUser = 2 where idUser = @idUser", new { idUser });
+                string sqlConsulta = @"select * from Status s 
+                                        where s.StatusValor = @Ativo";
+
+                var status = conexaoBD.Query<Status>(sqlConsulta, new { Ativo = (int)EnumStatus.Ativo }).FirstOrDefault();
+
+                string sql = @"Update Users set IdStatus = @IdStatusAtivo 
+                                where idUser = @UsuarioId";
+
+                conexaoBD.Execute(sql, new { IdStatusAtivo = status.IdStatus, UsuarioId = idUser });
 
             }
 
