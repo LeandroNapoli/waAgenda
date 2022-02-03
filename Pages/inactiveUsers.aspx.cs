@@ -8,6 +8,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using waAgenda.Models;
+using waAgenda.Models.Enum;
 
 namespace waAgenda.Pages
 {
@@ -35,7 +36,13 @@ namespace waAgenda.Pages
             {
                 conexaoBD.Open();
 
-                users = conexaoBD.Query<User>("Select * from users where statusUser = 0 order by nameUser asc").ToList();
+                string sql = @"Select * 
+                                from Users u 
+                                INNER JOIN Status s on s.idStatus = u.IdStatus 
+                                where s.StatusValor = @Inativo 
+                                order by NameUser asc";
+
+                users = conexaoBD.Query<User>(sql, new { Inativo = (int)EnumStatus.Inativo }).ToList();
 
             }
 
@@ -55,7 +62,7 @@ namespace waAgenda.Pages
 
             using (SqlConnection conexaoBD = new SqlConnection(strConexao))
             {
-                conexaoBD.Execute("Update Users set statusUser = 1 where idUser = @idUser", new { idUser });
+                conexaoBD.Execute("Update Users set statusUser = 2 where idUser = @idUser", new { idUser });
 
             }
 
