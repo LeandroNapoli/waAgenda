@@ -128,7 +128,8 @@ namespace waAgenda.Pages
 
 
                 string sql = @"Select * from users 
-                                where NameUser Like @search and IdStatus = @IdStatusAtivo";
+                                where NameUser Like @search and IdStatus = @IdStatusAtivo
+                                order by NameUser asc";
 
                 users = conexaoBD.Query<User>(sql, new { search = "%" + search + "%", IdStatusAtivo = status.IdStatus }).ToList();
 
