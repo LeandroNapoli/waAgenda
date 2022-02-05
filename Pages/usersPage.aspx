@@ -26,7 +26,8 @@
             <div class="col-md-0">
                 <div class="row">
 
-                    <asp:GridView ID="GridViewActiveUsers" runat="server" AutoGenerateColumns="false" ItemType="waAgenda.Models.User" CssClass="table table-bordered table-hover">
+                    <asp:GridView ID="GridViewActiveUsers" runat="server" AutoGenerateColumns="false" ItemType="waAgenda.Models.User" CssClass="table table-bordered table-hover table-responsive" EmptyDataRowStyle-CssClass="alert-danger text-center" 
+                                  ShowHeaderWhenEmpty="True" EmptyDataText="Nenhum dado encontrado" AllowPaging="true" OnPageIndexChanging="GridViewActiveUsers_PageIndexChanging" PageSize="5" PagerStyle-HorizontalAlign="Right" PagerStyle-CssClass="pagination-ys" >
 
                         <Columns>
                             <%--<asp:BoundField DataField="Name" HeaderText="Nome" />--%>

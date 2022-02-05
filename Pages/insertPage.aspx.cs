@@ -29,16 +29,31 @@ namespace waAgenda.Pages
             contact.NameUser = nameBox.Text;
             contact.EmailUser = emailBox.Text;
             contact.PhoneUser = phoneBox.Text;
-            contact.IdStatus = (int)EnumStatus.Ativo;
+
+            var status = PesquisaUserAtivo();
+
+            contact.IdStatus = status.IdStatus;
 
             using (SqlConnection conexaoBD = new SqlConnection(strConexao))
             {
-                conexaoBD.Execute("insert into Users (nameUser, emailUser, phoneUser, statusUser) Values (@nameUser, @emailUser, @phoneUser, @IdStatus)", contact);
+
+                conexaoBD.Execute("insert into Users (NameUser, EmailUser, PhoneUser, IdStatus) Values (@nameUser, @emailUser, @phoneUser, @IdStatus)", contact);
             }
 
             Response.Redirect("usersPage.aspx");
         }
 
-        
+        protected Status PesquisaUserAtivo()
+        {
+            using (SqlConnection conexaoBD = new SqlConnection(strConexao))
+            {
+                string sqlConsulta = @"select * from Status s 
+                                        where s.StatusValor = @Ativo"; //Select para identificar qual status possui o campo StatusValor = @Ativo do EnumStatus.
+
+                var status = conexaoBD.Query<Status>(sqlConsulta, new { Ativo = (int)EnumStatus.Ativo }).FirstOrDefault();
+
+                return status;
+            }
+        }
     }
 }
