@@ -10,7 +10,7 @@
     </asp:ContentPlaceHolder>
 
     <link href="../Content/bootstrap.min.css" rel="stylesheet" />
-    <link href="../Content/CustomCss/LinkButtons.css" rel="stylesheet" />
+    <link href="../Content/CustomCss/pagination.css" rel="stylesheet" />
     <script src="../Scripts/jquery-3.6.0.min.js"></script>
     <script src="../Scripts/bootstrap.min.js"></script>
 

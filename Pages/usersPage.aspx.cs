@@ -21,8 +21,8 @@ namespace waAgenda.Pages
             {
                 List<User> contacts = BuscarUsers();
 
-                    PreencheGridUsuario(contacts);
-                
+                PreencheGridUsuario(contacts);
+
                 //PreencheDropUsuario(contacts);
 
             }
@@ -63,7 +63,7 @@ namespace waAgenda.Pages
                                 where s.StatusValor = @Ativo 
                                 order by NameUser asc";
 
-                users = conexaoBD.Query<User>(sql, new { Ativo = (int)EnumStatus.Ativo}).ToList();
+                users = conexaoBD.Query<User>(sql, new { Ativo = (int)EnumStatus.Ativo }).ToList();
 
             }
 
@@ -97,10 +97,7 @@ namespace waAgenda.Pages
             using (SqlConnection conexaoBD = new SqlConnection(strConexao))
             {
 
-                string sqlConsulta = @"Select * from Status s 
-                                        where s.StatusValor = @Inativo";
-
-                var status = conexaoBD.Query<Status>(sqlConsulta, new { Inativo = (int)EnumStatus.Inativo }).FirstOrDefault();
+                var status = PesquisaUserInativo();
 
                 conexaoBD.Execute("Update Users set IdStatus = @IdStatusInativo where idUser = @idUser", new { IdStatusInativo = status.IdStatus, idUser });
 
@@ -121,21 +118,51 @@ namespace waAgenda.Pages
             {
                 conexaoBD.Open();
 
-                string sqlConsulta = @"select * from Status s 
-                                        where s.StatusValor = @Ativo"; //Select para identificar qual status possui o campo StatusValor = @Ativo do EnumStatus.
-
-                var status = conexaoBD.Query<Status>(sqlConsulta, new { Ativo = (int)EnumStatus.Ativo }).FirstOrDefault();
-
+                var status = PesquisaUserAtivo();
 
                 string sql = @"Select * from users 
-                                where NameUser Like @search and IdStatus = @IdStatusAtivo
-                                order by NameUser asc";
+                                where NameUser Like @search and IdStatus = @IdStatusAtivo";
 
                 users = conexaoBD.Query<User>(sql, new { search = "%" + search + "%", IdStatusAtivo = status.IdStatus }).ToList();
 
             }
 
             PreencheGridUsuario(users);
+        }
+
+        protected Status PesquisaUserAtivo()
+        {
+            using (SqlConnection conexaoBD = new SqlConnection(strConexao))
+            {
+                string sqlConsulta = @"select * from Status s 
+                                        where s.StatusValor = @Ativo"; //Select para identificar qual status possui o campo StatusValor = @Ativo do EnumStatus.
+
+                var status = conexaoBD.Query<Status>(sqlConsulta, new { Ativo = (int)EnumStatus.Ativo }).FirstOrDefault();
+
+                return status;
+            }
+        }
+
+        protected Status PesquisaUserInativo()
+        {
+            using (SqlConnection conexaoBD = new SqlConnection(strConexao))
+            {
+                string sqlConsulta = @"Select * from Status s 
+                                        where s.StatusValor = @Inativo"; //Select para identificar qual status possui o campo StatusValor = @Inativo do EnumStatus.
+
+                var status = conexaoBD.Query<Status>(sqlConsulta, new { Inativo = (int)EnumStatus.Inativo }).FirstOrDefault();
+
+                return status;
+            }
+        }
+
+        protected void GridViewActiveUsers_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            GridViewActiveUsers.PageIndex = e.NewPageIndex;
+            var contacts = BuscarUsers();
+
+            this.PreencheGridUsuario(contacts);
+
         }
     }
 }
