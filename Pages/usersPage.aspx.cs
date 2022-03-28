@@ -121,7 +121,10 @@ namespace waAgenda.Pages
                 var status = PesquisaUserAtivo();
 
                 string sql = @"Select * from users 
-                                where NameUser Like @search and IdStatus = @IdStatusAtivo";
+                                where NameUser 
+                                Like @search 
+                                and IdStatus = @IdStatusAtivo
+                                order by NameUser";
 
                 users = conexaoBD.Query<User>(sql, new { search = "%" + search + "%", IdStatusAtivo = status.IdStatus }).ToList();
 
